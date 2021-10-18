@@ -11,9 +11,10 @@
     "noImplicitAny": true,
     "strictNullChecks": true,
     "noImplicitReturns": true,
-    "baseUrl": "./src",
+    "baseUrl": "src",
     "paths": {
-      "constants": ["constants/*"]
+      "@constants/*": ["constants/*"],
+      "@components/*": ["components/*"]
     },
     "esModuleInterop": true,
     "skipLibCheck": true,
