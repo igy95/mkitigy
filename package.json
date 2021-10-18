@@ -9,6 +9,7 @@
   "dependencies": {
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
+    "eslint-plugin-react": "^7.26.1",
     "gatsby": "^3.14.3",
     "gatsby-plugin-mdx": "^2.14.0",
     "gatsby-source-filesystem": "^3.14.0",
@@ -17,6 +18,21 @@
   },
   "scripts": {
     "start": "gatsby develop",
-    "build": "gatsby build"
+    "build": "gatsby build",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "eslint": "^8.0.1",
+    "husky": "^7.0.2",
+    "lint-staged": "^11.2.3",
+    "prettier": "2.4.1"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   }
 }

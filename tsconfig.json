@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "es6",
+    "jsx": "react",
+    "moduleResolution": "node",
+    "allowJs": true,
+    "strict": true,
+    "removeComments": true,
+    "noEmit": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noImplicitReturns": true,
+    "baseUrl": "./src",
+    "paths": {
+      "constants": ["constants/*"]
+    },
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  }
+}
