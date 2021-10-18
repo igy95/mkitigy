@@ -1,0 +1,22 @@
+{
+  "name": "mkitigy.io",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Personal blog about frontend develop.",
+  "repository": "https://github.com/GwangYeol-Im/mkitigy.io.git",
+  "author": "imgwang-yeol <mkitigy@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@mdx-js/mdx": "^1.6.22",
+    "@mdx-js/react": "^1.6.22",
+    "gatsby": "^3.14.3",
+    "gatsby-plugin-mdx": "^2.14.0",
+    "gatsby-source-filesystem": "^3.14.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "scripts": {
+    "start": "gatsby develop",
+    "build": "gatsby build"
+  }
+}
