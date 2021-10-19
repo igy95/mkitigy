@@ -1,3 +1,6 @@
+import { graphql, useStaticQuery } from 'gatsby';
+
+import Header from './Header';
 import React from 'react';
 import styled from '@emotion/styled';
 
@@ -5,15 +8,36 @@ interface Props {
   children: React.ReactNode;
 }
 
-const Layout = ({ children }: Props) => (
-  <Container>
-    <main>{children}</main>
-    <Footer>mkitigy © {new Date().getFullYear()}</Footer>
-  </Container>
-);
+interface SiteQueryData {
+  site: {
+    siteMetadata: {
+      title: string;
+    };
+  };
+}
+
+const Layout = ({ children }: Props) => {
+  const siteQueryData: SiteQueryData = useStaticQuery(graphql`
+    query SiteQuery {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `);
+
+  return (
+    <Container>
+      <Header title={siteQueryData.site.siteMetadata.title} />
+      <main>{children}</main>
+      <Footer>mkitigy © {new Date().getFullYear()}</Footer>
+    </Container>
+  );
+};
 
 const Container = styled.div`
-  max-width: 768px;
+  max-width: 676px;
   margin: 0 auto;
   padding: 2.5rem 1rem;
   height: 100%;

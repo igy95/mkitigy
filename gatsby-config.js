@@ -1,6 +1,9 @@
 const path = require('path');
 
 module.exports = {
+  siteMetadata: {
+    title: 'Mkitigy.io',
+  },
   plugins: [
     {
       resolve: 'gatsby-source-filesystem',

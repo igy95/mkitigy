@@ -4,7 +4,7 @@ import Layout from '@components/Layout';
 import { PATH } from '@constants';
 import React from 'react';
 
-interface Posts {
+interface PostQueryData {
   allMdx: {
     edges: {
       node: {
@@ -18,7 +18,7 @@ interface Posts {
 }
 
 const App = () => {
-  const posts: Posts = useStaticQuery(graphql`
+  const postQueryData: PostQueryData = useStaticQuery(graphql`
     query {
       allMdx(filter: { fileAbsolutePath: { regex: "/posts/" } }) {
         edges {
@@ -35,7 +35,7 @@ const App = () => {
 
   return (
     <Layout>
-      {posts.allMdx.edges.map((edge, index) => {
+      {postQueryData.allMdx.edges.map((edge, index) => {
         const { date, title } = edge.node.frontmatter;
         const path = `${PATH.POST}/${title.trim().replace(/\s+/g, '-')}`;
 
