@@ -13,7 +13,7 @@
     "noImplicitReturns": true,
     "baseUrl": "src",
     "paths": {
-      "@constants/*": ["constants/*"],
+      "@constants": ["constants/index.ts"],
       "@components/*": ["components/*"]
     },
     "esModuleInterop": true,

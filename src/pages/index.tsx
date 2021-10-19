@@ -1,9 +1,24 @@
+import { Link, graphql, useStaticQuery } from 'gatsby';
+
+import Layout from '@components/Layout';
+import { PATH } from '@constants';
 import React from 'react';
-import { useStaticQuery, graphql, Link } from 'gatsby';
-import { PATH } from '../constants';
+
+interface Posts {
+  allMdx: {
+    edges: {
+      node: {
+        frontmatter: {
+          title: string;
+          date: string;
+        };
+      };
+    }[];
+  };
+}
 
 const App = () => {
-  const posts = useStaticQuery(graphql`
+  const posts: Posts = useStaticQuery(graphql`
     query {
       allMdx(filter: { fileAbsolutePath: { regex: "/posts/" } }) {
         edges {
@@ -19,7 +34,7 @@ const App = () => {
   `);
 
   return (
-    <div>
+    <Layout>
       {posts.allMdx.edges.map((edge, index) => {
         const { date, title } = edge.node.frontmatter;
         const path = `${PATH.POST}/${title.trim().replace(/\s+/g, '-')}`;
@@ -30,7 +45,7 @@ const App = () => {
           </Link>
         );
       })}
-    </div>
+    </Layout>
   );
 };
 

@@ -1,9 +1,20 @@
-import React from 'react';
+import Layout from '@components/Layout';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
+import React from 'react';
 
-const PostTemplate = ({ pageContext: { frontmatter, body } }) => {
+interface Props {
+  pageContext: {
+    frontmatter: {
+      title: string;
+      date: string;
+    };
+    body: string;
+  };
+}
+
+const PostTemplate = ({ pageContext: { frontmatter, body } }: Props) => {
   return (
-    <div>
+    <Layout>
       <div>
         <h1>{frontmatter.title}</h1>
         <p>{new Date(frontmatter.date).toLocaleDateString()}</p>
@@ -11,7 +22,7 @@ const PostTemplate = ({ pageContext: { frontmatter, body } }) => {
       <div>
         <MDXRenderer>{body}</MDXRenderer>
       </div>
-    </div>
+    </Layout>
   );
 };
 
