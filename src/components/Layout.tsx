@@ -17,19 +17,11 @@ interface SiteQueryData {
 }
 
 const Layout = ({ children }: Props) => {
-  const siteQueryData: SiteQueryData = useStaticQuery(graphql`
-    query SiteQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `);
+  const { site } = useStaticQuery<SiteQueryData>(query);
 
   return (
     <Container>
-      <Header title={siteQueryData.site.siteMetadata.title} />
+      <Header title={site.siteMetadata.title} />
       <main>{children}</main>
       <Footer>mkitigy © {new Date().getFullYear()}</Footer>
     </Container>
@@ -52,3 +44,13 @@ const Footer = styled.footer`
 `;
 
 export default Layout;
+
+const query = graphql`
+  query SiteQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`;

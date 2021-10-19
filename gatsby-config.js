@@ -3,6 +3,12 @@ const path = require('path');
 module.exports = {
   siteMetadata: {
     title: 'Mkitigy.io',
+    titleTemplate: '%s · mkitigy',
+    description: 'Personal blog posting about frontend develop.',
+    url: '',
+    image: '',
+    author: `@mkitigy`,
+    twitterUsername: '',
   },
   plugins: [
     {
@@ -17,6 +23,9 @@ module.exports = {
       options: {
         extensions: ['.md'],
       },
+    },
+    {
+      plugins: [`gatsby-plugin-react-helmet`],
     },
   ],
 };

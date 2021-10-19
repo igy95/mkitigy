@@ -1,3 +1,4 @@
+/** src/pages의 컴포넌트를 가져와 md 파일을 주입해 post page 빌드 */
 const path = require('path');
 
 exports.onCreateWebpackConfig = ({ actions }) => {
@@ -19,8 +20,10 @@ exports.createPages = async ({ graphql, actions }) => {
           node {
             id
             frontmatter {
-              date
               title
+              slug
+              date
+              image
             }
             body
           }
