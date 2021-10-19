@@ -1,4 +1,4 @@
-import { H1 } from './Heading/Heading';
+import { H1 } from './common/Heading';
 import { Link } from 'gatsby';
 import { PATH } from '@constants';
 import React from 'react';
