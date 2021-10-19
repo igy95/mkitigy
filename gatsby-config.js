@@ -24,8 +24,5 @@ module.exports = {
         extensions: ['.md'],
       },
     },
-    {
-      plugins: [`gatsby-plugin-react-helmet`],
-    },
   ],
 };
