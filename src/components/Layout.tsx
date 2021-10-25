@@ -2,6 +2,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 
 import Header from './Header';
 import React from 'react';
+import { colors } from '@constants';
 import styled from '@emotion/styled';
 
 interface Props {
@@ -21,6 +22,7 @@ const Layout = ({ children }: Props) => {
 
   return (
     <Container>
+      <Top />
       <Header title={site.siteMetadata.title} />
       <main>{children}</main>
       <Footer>mkitigy © {new Date().getFullYear()}</Footer>
@@ -28,25 +30,30 @@ const Layout = ({ children }: Props) => {
   );
 };
 
+const Top = styled.div`
+  background-color: ${colors.blue500};
+  height: 1rem;
+`;
+
 const Container = styled.div`
   max-width: 676px;
   margin: 0 auto;
-  padding: 2.5rem 1rem;
+  padding: 0 1rem;
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 `;
 
 const Footer = styled.footer`
   text-align: center;
-  margin-top: 3.25rem;
+  margin-top: auto;
+  padding: 1rem 0;
 `;
 
 export default Layout;
 
 const query = graphql`
-  query SiteQuery {
+  query Site {
     site {
       siteMetadata {
         title

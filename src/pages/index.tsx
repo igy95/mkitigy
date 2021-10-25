@@ -1,5 +1,6 @@
 import { Link, graphql, useStaticQuery } from 'gatsby';
 
+import Bio from '@components/Bio';
 import Layout from '@components/Layout';
 import { PATH } from '@constants';
 import React from 'react';
@@ -24,6 +25,7 @@ const App = () => {
   return (
     <Layout>
       <SEO title="Home" description="home page for blog." />
+      <Bio />
       {allMdx.edges.map((edge, index) => {
         const { date, title } = edge.node.frontmatter;
         const path = `${PATH.POST}/${title.trim().replace(/\s+/g, '-')}`;

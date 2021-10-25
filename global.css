@@ -2,6 +2,9 @@
 
 * {
   font-family: 'Pretendard', Arial, Helvetica, sans-serif;
+  color: #191f28;
+  padding: 0;
+  margin: 0;
 }
 
 html,
@@ -17,4 +20,8 @@ a {
 
 a:visited {
   color: inherit;
+}
+
+li {
+  list-style: none;
 }

@@ -8,6 +8,11 @@ module.exports = {
     url: '',
     image: '',
     author: `@mkitigy`,
+    introduction: 'Love Music & Development',
+    social: {
+      github: 'https://github.com/GwangYeol-Im',
+      gmail: 'mailto:mkitigy@gmail.com',
+    },
     twitterUsername: '',
   },
   plugins: [
