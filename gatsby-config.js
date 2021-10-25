@@ -18,6 +18,9 @@ module.exports = {
         path: path.resolve(__dirname, 'static', 'posts'),
       },
     },
+    'gatsby-plugin-image',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
     {
       resolve: 'gatsby-plugin-mdx',
       options: {
