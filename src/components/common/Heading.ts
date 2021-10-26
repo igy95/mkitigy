@@ -14,4 +14,5 @@ export const H1 = styled.h1`
 export const H2 = styled.h2`
   ${headingStyle}
   font-weight: 600;
+  margin: 1.5rem 0;
 `;

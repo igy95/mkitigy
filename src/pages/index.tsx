@@ -29,7 +29,7 @@ const App = () => {
 
   return (
     <Layout>
-      <Header />
+      <Header page="home" />
       <SEO title="Home" description="home page for blog." />
       <Bio />
       <PostList>

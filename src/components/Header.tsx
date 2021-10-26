@@ -1,16 +1,24 @@
+import { H1, H2 } from './common/Heading';
 import { Link, graphql, useStaticQuery } from 'gatsby';
 
-import { H1 } from './common/Heading';
 import { PATH } from '@constants';
 import React from 'react';
 
-const Header = () => {
+interface Props {
+  page: 'home' | 'post';
+}
+
+const Header = ({ page }: Props) => {
   const { site } = useStaticQuery(query);
 
   return (
     <header>
       <Link to={PATH.HOME}>
-        <H1>{site.siteMetadata.title}</H1>
+        {page === 'home' ? (
+          <H1>{site.siteMetadata.title}</H1>
+        ) : (
+          <H2>{site.siteMetadata.title}</H2>
+        )}
       </Link>
     </header>
   );

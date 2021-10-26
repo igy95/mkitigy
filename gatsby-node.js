@@ -37,7 +37,7 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   const posts = query.data.allMdx.edges;
-  const postTemplate = path.resolve(__dirname, 'src/pages', 'template.tsx');
+  const postTemplate = path.resolve(__dirname, 'src/pages', 'post.tsx');
 
   posts.forEach((post) => {
     const { frontmatter, body } = post.node;
