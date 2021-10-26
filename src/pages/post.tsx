@@ -1,7 +1,7 @@
 import { H1 } from '@components/common/Heading';
 import Header from '@components/Header';
 import Layout from '@components/Layout';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
+import MarkdownContent from '@components/MarkdownContent';
 import React from 'react';
 import SEO from '@components/SEO';
 import { colors } from '@constants';
@@ -31,7 +31,7 @@ const PostTemplate = ({ pageContext: { frontmatter, body } }: Props) => {
           <Title>{title}</Title>
           <Date>{date}</Date>
         </FrontMatter>
-        <Body>{body}</Body>
+        <MarkdownContent>{body}</MarkdownContent>
       </article>
     </Layout>
   );
@@ -51,12 +51,6 @@ const Title = styled(H1)`
 
 const Date = styled.i`
   color: ${colors.grey500};
-`;
-
-const Body = styled(MDXRenderer)`
-  & > p {
-    line-height: 1.5;
-  }
 `;
 
 export default PostTemplate;

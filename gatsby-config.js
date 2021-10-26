@@ -29,7 +29,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-mdx',
       options: {
-        extensions: ['.md'],
+        extensions: ['.md', '.mdx'],
       },
     },
   ],
