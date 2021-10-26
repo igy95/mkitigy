@@ -25,9 +25,7 @@ const Bio = () => {
         />
       </ImageWrapper>
       <TextContent>
-        <Author>
-          DevLog by <strong>{author}</strong>
-        </Author>
+        <Author>DevLog by {author}</Author>
         <Introduction>{introduction}</Introduction>
         {social && (
           <MoreInfo>
@@ -63,17 +61,17 @@ const TextContent = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   padding-left: 1rem;
 `;
 
 const Author = styled.span`
-  font-weight: 500;
+  margin-bottom: 0.8rem;
 `;
 
 const Introduction = styled.span`
+  margin-bottom: 0.8rem;
   font-size: 0.8rem;
-  font-weight: 500;
   color: ${colors.grey700};
 `;
 
@@ -84,7 +82,6 @@ const MoreInfo = styled.ul`
     font-size: 0.85rem;
     width: max-content;
     margin-right: 0.7rem;
-    border-bottom: 1px solid;
   }
 `;
 

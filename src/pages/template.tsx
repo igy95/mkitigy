@@ -17,6 +17,7 @@ interface Props {
 
 const PostTemplate = ({ pageContext: { frontmatter, body } }: Props) => {
   const { title, slug, date, image } = frontmatter;
+
   return (
     <Layout>
       <SEO title={title} description={slug} image={image} article={true} />
