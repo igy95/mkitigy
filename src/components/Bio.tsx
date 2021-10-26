@@ -52,6 +52,7 @@ const Container = styled.div`
   align-items: center;
   height: 6rem;
   padding: 1rem;
+  margin-bottom: 3rem;
 `;
 
 const ImageWrapper = styled.div`

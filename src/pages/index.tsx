@@ -1,6 +1,7 @@
 import { Link, graphql, useStaticQuery } from 'gatsby';
 
 import Bio from '@components/Bio';
+import Header from '@components/Header';
 import Layout from '@components/Layout';
 import { PATH } from '@constants';
 import React from 'react';
@@ -24,6 +25,7 @@ const App = () => {
 
   return (
     <Layout>
+      <Header />
       <SEO title="Home" description="home page for blog." />
       <Bio />
       {allMdx.edges.map((edge, index) => {

@@ -1,6 +1,3 @@
-import { graphql, useStaticQuery } from 'gatsby';
-
-import Header from './Header';
 import React from 'react';
 import { colors } from '@constants';
 import styled from '@emotion/styled';
@@ -9,21 +6,10 @@ interface Props {
   children: React.ReactNode;
 }
 
-interface SiteQueryData {
-  site: {
-    siteMetadata: {
-      title: string;
-    };
-  };
-}
-
 const Layout = ({ children }: Props) => {
-  const { site } = useStaticQuery<SiteQueryData>(query);
-
   return (
     <Container>
       <Top />
-      <Header title={site.siteMetadata.title} />
       <main>{children}</main>
       <Footer>mkitigy © {new Date().getFullYear()}</Footer>
     </Container>
@@ -51,13 +37,3 @@ const Footer = styled.footer`
 `;
 
 export default Layout;
-
-const query = graphql`
-  query Site {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-  }
-`;
