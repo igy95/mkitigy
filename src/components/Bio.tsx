@@ -81,7 +81,8 @@ const MoreInfo = styled.ul`
   & > li {
     font-size: 0.85rem;
     width: max-content;
-    margin-right: 0.7rem;
+    margin-right: 1rem;
+    border-bottom: 1px solid ${colors.blue500};
   }
 `;
 

@@ -7,7 +7,7 @@ module.exports = {
     description: 'Personal blog posting about frontend develop.',
     url: '',
     image: '',
-    author: `@mkitigy`,
+    author: `mkitigy`,
     introduction: 'Love Music & Development',
     social: {
       github: 'https://github.com/GwangYeol-Im',

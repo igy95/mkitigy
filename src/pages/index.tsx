@@ -68,7 +68,7 @@ const Post = styled.li`
 `;
 
 const Title = styled(H2)`
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.8rem;
 `;
 
 const Slug = styled.div`

@@ -1,3 +1,5 @@
+import { graphql, useStaticQuery } from 'gatsby';
+
 import React from 'react';
 import { colors } from '@constants';
 import styled from '@emotion/styled';
@@ -7,11 +9,18 @@ interface Props {
 }
 
 const Layout = ({ children }: Props) => {
+  const { site } = useStaticQuery(query);
+  const { author, social } = site.siteMetadata;
+
   return (
     <Container>
       <Top />
       <main>{children}</main>
-      <Footer>mkitigy © {new Date().getFullYear()}</Footer>
+      <Footer>
+        <a href={social.github}>{author}</a>
+        <Copyright>©</Copyright>
+        {new Date().getFullYear()}
+      </Footer>
     </Container>
   );
 };
@@ -31,9 +40,28 @@ const Container = styled.div`
 `;
 
 const Footer = styled.footer`
+  font-size: 0.9rem;
   text-align: center;
   margin-top: auto;
   padding: 1rem 0;
 `;
 
+const Copyright = styled.span`
+  color: ${colors.grey400};
+  margin: 0 0.2rem;
+`;
+
 export default Layout;
+
+const query = graphql`
+  query Footer {
+    site {
+      siteMetadata {
+        author
+        social {
+          github
+        }
+      }
+    }
+  }
+`;
