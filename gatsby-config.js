@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
   siteMetadata: {
     title: 'Mkitigy.io',
-    titleTemplate: '%s · mkitigy',
+    titleTemplate: '%s | Mkitigy.io',
     description: 'Personal blog posting about frontend develop.',
     url: '',
     image: '',
