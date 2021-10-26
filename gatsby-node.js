@@ -23,7 +23,7 @@ exports.createPages = async ({ graphql, actions }) => {
               title
               slug
               date
-              image
+              featuredImage
             }
             body
           }
