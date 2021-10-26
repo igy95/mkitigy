@@ -58,6 +58,10 @@ const InlineCode = styled.code`
 
 const Link = styled.a`
   color: ${colors.blue500};
+
+  &::visited {
+    color: inherit;
+  }
 `;
 
 const List = css`

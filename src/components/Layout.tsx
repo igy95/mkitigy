@@ -43,7 +43,7 @@ const Footer = styled.footer`
   font-size: 0.9rem;
   text-align: center;
   margin-top: auto;
-  padding: 1rem 0;
+  padding: 3rem 0 2.5rem 0;
 `;
 
 const Copyright = styled.span`

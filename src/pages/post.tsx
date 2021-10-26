@@ -1,9 +1,12 @@
+import Bio from '@components/Bio';
+import Darass from 'darass-react';
 import { H1 } from '@components/common/Heading';
 import Header from '@components/Header';
 import Layout from '@components/Layout';
 import MarkdownContent from '@components/MarkdownContent';
 import React from 'react';
 import SEO from '@components/SEO';
+import TYF from '@components/TYF';
 import { colors } from '@constants';
 import styled from '@emotion/styled';
 
@@ -31,16 +34,32 @@ const PostTemplate = ({ pageContext: { frontmatter, body } }: Props) => {
         article={true}
       />
       <Header page="post" />
-      <article>
+      <Post>
         <FrontMatter>
           <Title>{title}</Title>
           <Date>{date}</Date>
         </FrontMatter>
         <MarkdownContent>{body}</MarkdownContent>
-      </article>
+      </Post>
+      <Badge>
+        <TYF />
+      </Badge>
+      <Bio />
+      <Darass
+        projectKey="RX0tGvoJblfIKbR38"
+        darkMode={false}
+        primaryColor={colors.green300}
+        isShowSortOption={true}
+        isAllowSocialLogin={false}
+        isShowLogo={false}
+      />
     </Layout>
   );
 };
+
+const Post = styled.article`
+  margin-bottom: 3rem;
+`;
 
 const FrontMatter = styled.section`
   display: flex;
@@ -56,6 +75,10 @@ const Title = styled(H1)`
 
 const Date = styled.i`
   color: ${colors.grey500};
+`;
+
+const Badge = styled.div`
+  text-align: right;
 `;
 
 export default PostTemplate;
