@@ -14,8 +14,7 @@ const Layout = ({ children }: Props) => {
 
   return (
     <Container>
-      <Top />
-      <main>{children}</main>
+      {children}
       <Footer>
         <a href={social.github}>{author}</a>
         <Copyright>©</Copyright>
@@ -24,11 +23,6 @@ const Layout = ({ children }: Props) => {
     </Container>
   );
 };
-
-const Top = styled.div`
-  background-color: ${colors.blue500};
-  height: 1rem;
-`;
 
 const Container = styled.div`
   max-width: 676px;
