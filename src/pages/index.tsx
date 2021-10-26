@@ -35,7 +35,7 @@ const App = () => {
       <PostList>
         {allMdx.edges.map((edge, index) => {
           const { date, title, slug } = edge.node.frontmatter;
-          const path = `${PATH.POST}/${title.trim().replace(/\s+/g, '-')}`;
+          const path = PATH.POST(title);
 
           return (
             <Post key={title + date}>

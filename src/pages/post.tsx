@@ -1,13 +1,15 @@
+import { PATH, colors } from '@constants';
+
 import Bio from '@components/Bio';
 import Darass from 'darass-react';
 import { H1 } from '@components/common/Heading';
 import Header from '@components/Header';
 import Layout from '@components/Layout';
+import { Link } from 'gatsby';
 import MarkdownContent from '@components/MarkdownContent';
 import React from 'react';
 import SEO from '@components/SEO';
 import TYF from '@components/TYF';
-import { colors } from '@constants';
 import styled from '@emotion/styled';
 
 interface Props {
@@ -19,10 +21,14 @@ interface Props {
       featuredImage: string;
     };
     body: string;
+    nextPost: string;
+    prevPost: string;
   };
 }
 
-const PostTemplate = ({ pageContext: { frontmatter, body } }: Props) => {
+const PostTemplate = ({
+  pageContext: { frontmatter, body, nextPost, prevPost },
+}: Props) => {
   const { title, slug, date, featuredImage } = frontmatter;
 
   return (
@@ -41,6 +47,18 @@ const PostTemplate = ({ pageContext: { frontmatter, body } }: Props) => {
         </FrontMatter>
         <MarkdownContent>{body}</MarkdownContent>
       </Post>
+      <Navigator>
+        <li>
+          {prevPost && (
+            <Link to={PATH.POST(prevPost)}>이전 글: {prevPost}</Link>
+          )}
+        </li>
+        <li>
+          {nextPost && (
+            <Link to={PATH.POST(nextPost)}>다음 글: {nextPost}</Link>
+          )}
+        </li>
+      </Navigator>
       <Badge>
         <TYF />
       </Badge>
@@ -75,6 +93,24 @@ const Title = styled(H1)`
 
 const Date = styled.i`
   color: ${colors.grey500};
+`;
+
+const Navigator = styled.ul`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+
+  & > li {
+    width: 45%;
+    color: ${colors.red300};
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  & > li:last-child {
+    text-align: right;
+  }
 `;
 
 const Badge = styled.div`
