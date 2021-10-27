@@ -1,3 +1,4 @@
+import { GatsbyImage, ImageDataLike, getImage } from 'gatsby-plugin-image';
 import { PATH, colors } from '@constants';
 
 import Bio from '@components/Bio';
@@ -18,7 +19,7 @@ interface Props {
       title: string;
       description: string;
       date: string;
-      featuredImage: string;
+      featuredImage: ImageDataLike;
     };
     body: string;
     nextPost: string;
@@ -30,20 +31,17 @@ const PostTemplate = ({
   pageContext: { frontmatter, body, nextPost, prevPost },
 }: Props) => {
   const { title, description, date, featuredImage } = frontmatter;
+  const image = getImage(featuredImage);
 
   return (
     <Layout>
-      <SEO
-        title={title}
-        description={description}
-        image={featuredImage}
-        article={true}
-      />
+      <SEO title={title} description={description} article={true} />
       <Header page="post" />
       <Post>
         <FrontMatter>
           <Title>{title}</Title>
           <Date>{date}</Date>
+          {image && <FeaturedImage image={image} alt={title} />}
         </FrontMatter>
         <MarkdownContent>{body}</MarkdownContent>
       </Post>
@@ -93,6 +91,10 @@ const Title = styled(H1)`
 
 const Date = styled.i`
   color: ${colors.grey500};
+`;
+
+const FeaturedImage = styled(GatsbyImage)`
+  margin-top: 2.5rem;
 `;
 
 const Navigator = styled.ul`

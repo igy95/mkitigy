@@ -23,7 +23,16 @@ exports.createPages = async ({ graphql, actions }) => {
               title
               description
               date
-              featuredImage
+              featuredImage {
+                childImageSharp {
+                  gatsbyImageData(
+                    width: 600
+                    height: 300
+                    placeholder: BLURRED
+                    formats: [AUTO, WEBP, AVIF]
+                  )
+                }
+              }
             }
             body
           }
