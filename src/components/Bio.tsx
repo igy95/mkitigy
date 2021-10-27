@@ -13,7 +13,7 @@ const Bio = () => {
     <Container>
       <ImageWrapper>
         <StaticImage
-          src="../images/profile.jpg"
+          src="../images/profile/profile.jpg"
           alt={author}
           placeholder="blurred"
           layout="fixed"

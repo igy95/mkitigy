@@ -104,7 +104,7 @@ const Navigator = styled.ul`
 
   & > li {
     width: 45%;
-    color: ${colors.red300};
+    color: ${colors.red400};
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
