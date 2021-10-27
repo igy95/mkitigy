@@ -21,7 +21,7 @@ exports.createPages = async ({ graphql, actions }) => {
             id
             frontmatter {
               title
-              slug
+              description
               date
               featuredImage
             }

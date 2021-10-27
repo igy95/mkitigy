@@ -16,7 +16,7 @@ interface PostsQueryData {
         frontmatter: {
           title: string;
           date: string;
-          slug: string;
+          description: string;
           tags: string[];
         };
       };
@@ -34,14 +34,14 @@ const App = () => {
       <Bio />
       <PostList>
         {allMdx.edges.map((edge, index) => {
-          const { date, title, slug } = edge.node.frontmatter;
+          const { date, title, description } = edge.node.frontmatter;
           const path = PATH.POST(title);
 
           return (
             <Post key={title + date}>
               <Link to={path} key={index}>
                 <Title>{title}</Title>
-                <Slug>{slug}</Slug>
+                <Description>{description}</Description>
                 <Date>
                   <small>Posted on {date}</small>
                 </Date>
@@ -71,7 +71,7 @@ const Title = styled(H2)`
   margin-bottom: 0.8rem;
 `;
 
-const Slug = styled.div`
+const Description = styled.div`
   margin-bottom: 1.2rem;
 `;
 
@@ -89,7 +89,7 @@ const query = graphql`
         node {
           frontmatter {
             title
-            slug
+            description
             date
             tags
           }

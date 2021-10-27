@@ -16,7 +16,7 @@ interface Props {
   pageContext: {
     frontmatter: {
       title: string;
-      slug: string;
+      description: string;
       date: string;
       featuredImage: string;
     };
@@ -29,13 +29,13 @@ interface Props {
 const PostTemplate = ({
   pageContext: { frontmatter, body, nextPost, prevPost },
 }: Props) => {
-  const { title, slug, date, featuredImage } = frontmatter;
+  const { title, description, date, featuredImage } = frontmatter;
 
   return (
     <Layout>
       <SEO
         title={title}
-        description={slug}
+        description={description}
         image={featuredImage}
         article={true}
       />
