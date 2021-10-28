@@ -29,14 +29,33 @@ exports.createSchemaCustomization = ({ actions }) => {
 exports.createPages = async ({ graphql, actions }) => {
   const query = await graphql(`
     query Posts {
-      allMdx(filter: { fileAbsolutePath: { regex: "/posts/" } }) {
+      allMdx(
+        filter: { fileAbsolutePath: { regex: "/posts/" } }
+        sort: { order: DESC, fields: frontmatter___date }
+      ) {
         edges {
-          node {
+          next {
+            slug
             frontmatter {
               title
-              description
+            }
+          }
+          previous {
+            slug
+            frontmatter {
+              title
+            }
+          }
+          node {
+            body
+            slug
+            timeToRead
+            frontmatter {
               date
+              description
               imgSrc
+              tags
+              title
               featuredImage {
                 childImageSharp {
                   gatsbyImageData(
@@ -47,17 +66,6 @@ exports.createPages = async ({ graphql, actions }) => {
                   )
                 }
               }
-            }
-            body
-          }
-          next {
-            frontmatter {
-              title
-            }
-          }
-          previous {
-            frontmatter {
-              title
             }
           }
         }
@@ -72,20 +80,18 @@ exports.createPages = async ({ graphql, actions }) => {
   const posts = query.data.allMdx.edges;
   const postTemplate = path.resolve(__dirname, 'src/pages', 'post.tsx');
 
-  posts.forEach(({ node, next, previous }) => {
-    const { frontmatter, body } = node;
-    const nextPost = next?.frontmatter?.title ?? '';
-    const prevPost = previous?.frontmatter?.title ?? '';
-    const path = `/post/${frontmatter.title.trim().replace(/\s+/g, '-')}`;
+  posts.forEach(({ next, previous, node }) => {
+    const { body, slug, timeToRead, frontmatter } = node;
 
     actions.createPage({
-      path,
+      path: slug,
       component: postTemplate,
       context: {
         frontmatter,
         body,
-        nextPost,
-        prevPost,
+        timeToRead,
+        next,
+        previous,
       },
     });
   });

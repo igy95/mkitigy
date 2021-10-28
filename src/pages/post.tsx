@@ -1,5 +1,4 @@
 import { GatsbyImage, ImageDataLike, getImage } from 'gatsby-plugin-image';
-import { PATH, colors } from '@constants';
 
 import Bio from '@components/Bio';
 import Darass from 'darass-react';
@@ -11,25 +10,34 @@ import MarkdownContent from '@components/MarkdownContent';
 import React from 'react';
 import SEO from '@components/SEO';
 import TYF from '@components/TYF';
+import { colors } from '@constants';
 import styled from '@emotion/styled';
+
+interface OtherArticle {
+  slug: string;
+  frontmatter: {
+    title: string;
+  };
+}
 
 interface Props {
   pageContext: {
     frontmatter: {
-      title: string;
-      description: string;
       date: string;
-      featuredImage: ImageDataLike;
+      description: string;
       imgSrc: string;
+      title: string;
+      featuredImage: ImageDataLike;
     };
     body: string;
-    nextPost: string;
-    prevPost: string;
+    timeToRead: number;
+    next: OtherArticle;
+    previous: OtherArticle;
   };
 }
 
 const PostTemplate = ({
-  pageContext: { frontmatter, body, nextPost, prevPost },
+  pageContext: { frontmatter, body, timeToRead, next, previous },
 }: Props) => {
   const { title, description, date, featuredImage, imgSrc } = frontmatter;
   const image = getImage(featuredImage);
@@ -41,7 +49,9 @@ const PostTemplate = ({
       <Post>
         <FrontMatter>
           <Title>{title}</Title>
-          <Date>{date}</Date>
+          <ReadInfo>
+            {date} • {timeToRead} min
+          </ReadInfo>
           {image && <FeaturedImage image={image} alt={title} />}
           {imgSrc && (
             <ImageSource>
@@ -53,13 +63,15 @@ const PostTemplate = ({
       </Post>
       <Navigator>
         <li>
-          {prevPost && (
-            <Link to={PATH.POST(prevPost)}>이전 글: {prevPost}</Link>
+          {previous && (
+            <Link to={`/${previous.slug}`}>
+              이전 글: {previous.frontmatter.title}
+            </Link>
           )}
         </li>
         <li>
-          {nextPost && (
-            <Link to={PATH.POST(nextPost)}>다음 글: {nextPost}</Link>
+          {next && (
+            <Link to={`/${next.slug}`}>다음 글: {next.frontmatter.title}</Link>
           )}
         </li>
       </Navigator>
@@ -95,7 +107,7 @@ const Title = styled(H1)`
   font-size: 2.3rem;
 `;
 
-const Date = styled.i`
+const ReadInfo = styled.i`
   color: ${colors.grey500};
 `;
 
@@ -120,10 +132,13 @@ const Navigator = styled.ul`
 
   & > li {
     width: 45%;
-    color: ${colors.red400};
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+  }
+
+  & a {
+    color: ${colors.red400};
   }
 
   & > li:last-child {

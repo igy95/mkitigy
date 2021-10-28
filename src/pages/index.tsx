@@ -1,5 +1,4 @@
 import { Link, graphql, useStaticQuery } from 'gatsby';
-import { PATH, colors } from '@constants';
 
 import Bio from '@components/Bio';
 import { H2 } from '@components/common/Heading';
@@ -7,17 +6,20 @@ import Header from '@components/Header';
 import Layout from '@components/Layout';
 import React from 'react';
 import SEO from '@components/SEO';
+import { colors } from '@constants';
 import styled from '@emotion/styled';
 
 interface PostsQueryData {
   allMdx: {
     edges: {
       node: {
+        slug: string;
+        timeToRead: number;
         frontmatter: {
-          title: string;
           date: Date;
           description: string;
           tags: string[];
+          title: string;
         };
       };
     }[];
@@ -26,12 +28,6 @@ interface PostsQueryData {
 
 const App = () => {
   const { allMdx } = useStaticQuery<PostsQueryData>(query);
-  const posts = allMdx.edges.sort((aEdge, bEdge) => {
-    const a = new Date(aEdge.node.frontmatter.date).getTime();
-    const b = new Date(bEdge.node.frontmatter.date).getTime();
-
-    return b - a;
-  });
 
   return (
     <Layout>
@@ -39,18 +35,20 @@ const App = () => {
       <SEO title="Home" description="home page for blog." />
       <Bio />
       <PostList>
-        {posts.map((edge, index) => {
-          const { date, title, description } = edge.node.frontmatter;
-          const path = PATH.POST(title);
+        {allMdx.edges.map((edge, index) => {
+          const { slug, timeToRead, frontmatter } = edge.node;
+          const { date, description, title } = frontmatter;
 
           return (
             <Post key={title + date}>
-              <Link to={path} key={index}>
+              <Link to={slug} key={index}>
                 <Title>{title}</Title>
                 <Description>{description}</Description>
-                <PostingDate>
-                  <small>Posted on {date}</small>
-                </PostingDate>
+                <ReadInfo>
+                  <small>
+                    {date} • {timeToRead} min
+                  </small>
+                </ReadInfo>
               </Link>
             </Post>
           );
@@ -81,7 +79,7 @@ const Description = styled.div`
   margin-bottom: 1.2rem;
 `;
 
-const PostingDate = styled.div`
+const ReadInfo = styled.div`
   color: ${colors.grey600};
   text-align: right;
 `;
@@ -90,14 +88,19 @@ export default App;
 
 const query = graphql`
   query Posts {
-    allMdx(filter: { fileAbsolutePath: { regex: "/posts/" } }) {
+    allMdx(
+      filter: { fileAbsolutePath: { regex: "/posts/" } }
+      sort: { order: DESC, fields: frontmatter___date }
+    ) {
       edges {
         node {
+          slug
+          timeToRead
           frontmatter {
-            title
-            description
             date
+            description
             tags
+            title
           }
         }
       }
