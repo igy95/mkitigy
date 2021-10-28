@@ -15,7 +15,7 @@ interface PostsQueryData {
       node: {
         frontmatter: {
           title: string;
-          date: string;
+          date: Date;
           description: string;
           tags: string[];
         };
@@ -26,6 +26,12 @@ interface PostsQueryData {
 
 const App = () => {
   const { allMdx } = useStaticQuery<PostsQueryData>(query);
+  const posts = allMdx.edges.sort((aEdge, bEdge) => {
+    const a = new Date(aEdge.node.frontmatter.date).getTime();
+    const b = new Date(bEdge.node.frontmatter.date).getTime();
+
+    return b - a;
+  });
 
   return (
     <Layout>
@@ -33,7 +39,7 @@ const App = () => {
       <SEO title="Home" description="home page for blog." />
       <Bio />
       <PostList>
-        {allMdx.edges.map((edge, index) => {
+        {posts.map((edge, index) => {
           const { date, title, description } = edge.node.frontmatter;
           const path = PATH.POST(title);
 
@@ -42,9 +48,9 @@ const App = () => {
               <Link to={path} key={index}>
                 <Title>{title}</Title>
                 <Description>{description}</Description>
-                <Date>
+                <PostingDate>
                   <small>Posted on {date}</small>
-                </Date>
+                </PostingDate>
               </Link>
             </Post>
           );
@@ -75,7 +81,7 @@ const Description = styled.div`
   margin-bottom: 1.2rem;
 `;
 
-const Date = styled.div`
+const PostingDate = styled.div`
   color: ${colors.grey600};
   text-align: right;
 `;

@@ -27,6 +27,7 @@ const MarkdownContent = ({ children }: Props) => (
       ul: UL,
       ol: OL,
       pre: CodeBlock,
+      figure: Figure,
     }}
   >
     <MDXRenderer>{children}</MDXRenderer>
@@ -36,6 +37,17 @@ const MarkdownContent = ({ children }: Props) => (
 const Paragraph = styled.p`
   line-height: 1.5;
   margin-bottom: 1rem;
+`;
+
+const Figure = styled.figure`
+  text-align: center;
+  margin-bottom: 1rem;
+
+  & > figcaption {
+    margin-top: 0.5rem;
+    color: ${colors.grey500};
+    font-style: italic;
+  }
 `;
 
 const BlockQuote = styled.blockquote`

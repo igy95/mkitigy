@@ -20,6 +20,7 @@ interface Props {
       description: string;
       date: string;
       featuredImage: ImageDataLike;
+      imgSrc: string;
     };
     body: string;
     nextPost: string;
@@ -30,7 +31,7 @@ interface Props {
 const PostTemplate = ({
   pageContext: { frontmatter, body, nextPost, prevPost },
 }: Props) => {
-  const { title, description, date, featuredImage } = frontmatter;
+  const { title, description, date, featuredImage, imgSrc } = frontmatter;
   const image = getImage(featuredImage);
 
   return (
@@ -42,6 +43,11 @@ const PostTemplate = ({
           <Title>{title}</Title>
           <Date>{date}</Date>
           {image && <FeaturedImage image={image} alt={title} />}
+          {imgSrc && (
+            <ImageSource>
+              <a href={imgSrc}>이미지 출처</a>
+            </ImageSource>
+          )}
         </FrontMatter>
         <MarkdownContent>{body}</MarkdownContent>
       </Post>
@@ -95,6 +101,16 @@ const Date = styled.i`
 
 const FeaturedImage = styled(GatsbyImage)`
   margin-top: 2.5rem;
+`;
+
+const ImageSource = styled.div`
+  margin-top: 0.7rem;
+  width: 37.5rem;
+  text-align: right;
+
+  & > a {
+    color: ${colors.grey500};
+  }
 `;
 
 const Navigator = styled.ul`

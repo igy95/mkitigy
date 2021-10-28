@@ -1,12 +1,13 @@
 ---
-title: 비동기 처리 시 Race condition 고려하기
-description: AbortController를 활용하여 경쟁 상태 해결하기
-date: October 26, 2021
-featuredImage: '../../images/profile/profile.jpg'
-tags: ['JavaScript']
+title: '비동기 처리 시 race condition 고려하기'
+description: 'race condition을 방지하기 위해 AbortController 도입하기'
+date: September 12, 2021
+tags: ['web', 'javascript']
+featuredImage: '../../images/featured/race-condition.jpeg'
+imgSrc: 'https://blog.theodo.com/2019/09/handle-race-conditions-in-nodejs-using-mutex/'
 ---
 
-프로그래밍을 할 때 비동기 처리는 여간 까다로운 게 아닙니다. 저마다의 어려움이 있겠지만, 대표적으로 그 이유를 '낮은 예측성'에 들 수 있는데요. 아무리 잘 작성된 비동기 코드라 할 지라도, 동기 코드에 비해 추론이 힘들 뿐더러 일관된 응답 처리 또한 쉽지 않기 때문입니다.
+프로그래밍을 할 때 비동기 처리는 여간 까다로운 게 아닙니다. 저마다의 어려움이 있겠지만, 대표적으로 그 이유를 '낮은 예측성'에 들 수 있는데요. 아무리 잘 작성된 비동기 코드라 할 지라도 동기 코드에 비해 추론이 힘들 뿐더러 일관된 응답 처리 또한 쉽지 않기 때문입니다.
 
 이번 글에서는 비동기 처리를 어렵게 하는 요소 중 하나인 **race condition**과 이에 대한 대안책을 함께 알아보겠습니다.
 
@@ -18,7 +19,7 @@ tags: ['JavaScript']
 
 조금 더 쉽게 풀어보자면, 하나의 처리를 위해 다수의 작업이 (거의) 동시에 발생하는 경우 처리를 제어하는 입장에서 무엇이 먼저 완료될 지 예측하기 힘들다는 이야기입니다. 비동기 맥락에서 경합 조건은 주로 **요청 순서와 응답 순서가 반드시 같지는 않음**을 의미하는 용어로 사용됩니다.
 
-```jsx
+```js
 function fetchA() {
   fetch(url) //
     .then((response) => console.log(`A: ${response}`));
@@ -77,7 +78,10 @@ $input.addEventListener('input', () => {
 
 <br />
 
-<img width="400" src="../images/2021-09-23-race-condition1.gif" alt="경합 조건 예시 1" />
+<figure>
+  <img src="race-condition1.gif" alt="race condition 예시 1" />
+  <figcaption align = "center"></figcaption>
+</figure>
 
 마지막 응답의 결과는 매번 바뀔 수 있기에 그대로 화면에 띄워주게 되면 결국 사용자는 기대와 다른 결과를 얻게 됩니다.
 
@@ -149,7 +153,10 @@ $input.addEventListener('input', () => {
 
 <br />
 
-<img width="400" src="../images/2021-09-23-race-condition2.gif" alt="경합 조건 예시 2" />
+<figure>
+  <img src="race-condition2.gif" alt="race condition 예시 2" />
+  <figcaption align = "center"></figcaption>
+</figure>
 
 코드를 다시 정리해보면,
 
@@ -165,8 +172,7 @@ $input.addEventListener('input', () => {
 
 사용자를 위한 UX를 고려하며 비동기 처리를 할 때, 단지 `AbortController`를 사용하는 것만으로는 완벽한 대안이 될 수 없습니다. Debounce, Throttle을 활용해 불필요한 이벤트의 반복을 줄이고, `AbortController`를 통해 응답 간의 경합 조건을 줄여준다면 관련된 비동기 처리의 안정성을 더욱 높일 수 있을 것입니다.
 
-## References
+## Reference
 
-- [대표 이미지 출처](https://blog.theodo.com/2019/09/handle-race-conditions-in-nodejs-using-mutex/)
 - [Fetch: Abort - Modern Javascript Tutorial](https://javascript.info/fetch-abort#:~:text=AbortController%20is%20a%20simple%20object,possible%20to%20abort%20the%20fetch%20.)
 - [Handling API request race conditions in React](https://dev.to/sebastienlorber/handling-api-request-race-conditions-in-react-4j5b)

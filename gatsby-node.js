@@ -21,6 +21,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
     type MdxFrontmatter {
       featuredImage: File @fileByRelativePath
+      imgSrc: String
     }
   `);
 };
@@ -35,6 +36,7 @@ exports.createPages = async ({ graphql, actions }) => {
               title
               description
               date
+              imgSrc
               featuredImage {
                 childImageSharp {
                   gatsbyImageData(
