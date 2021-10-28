@@ -12,6 +12,19 @@ exports.onCreateWebpackConfig = ({ actions }) => {
   });
 };
 
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+
+  createTypes(`
+    type Mdx implements Node {
+      frontmatter: MdxFrontmatter!
+    }
+    type MdxFrontmatter {
+      featuredImage: File @fileByRelativePath
+    }
+  `);
+};
+
 exports.createPages = async ({ graphql, actions }) => {
   const query = await graphql(`
     query Posts {
