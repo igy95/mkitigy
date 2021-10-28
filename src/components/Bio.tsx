@@ -1,8 +1,8 @@
+import { PATH, colors } from '@constants';
 import { graphql, useStaticQuery } from 'gatsby';
 
 import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
-import { colors } from '@constants';
 import styled from '@emotion/styled';
 
 const Bio = () => {
@@ -30,7 +30,7 @@ const Bio = () => {
         {social && (
           <MoreInfo>
             <li>
-              <a href="/">Resume</a>
+              <a href={PATH.ABOUT}>Resume</a>
             </li>
             <li>
               <a href={social.github}>Github</a>

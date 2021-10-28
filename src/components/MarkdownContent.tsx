@@ -35,7 +35,7 @@ const MarkdownContent = ({ children }: Props) => (
 
 const Paragraph = styled.p`
   line-height: 1.5;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 `;
 
 const BlockQuote = styled.blockquote`
@@ -59,18 +59,17 @@ const InlineCode = styled.code`
 const Link = styled.a`
   color: ${colors.blue500};
 
-  &::visited {
-    color: inherit;
+  &:visited {
+    color: ${colors.blue500};
   }
 `;
 
 const List = css`
-  margin-left: 0.5rem;
-  margin-bottom: 1.5rem;
+  margin: 0 0 0.7rem 1rem;
 
   & > li {
     line-height: 1.5;
-    margin-bottom: 0.5rem;
+    margin: 0.3rem 0;
   }
 `;
 

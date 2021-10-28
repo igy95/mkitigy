@@ -18,7 +18,6 @@ exports.createPages = async ({ graphql, actions }) => {
       allMdx(filter: { fileAbsolutePath: { regex: "/posts/" } }) {
         edges {
           node {
-            id
             frontmatter {
               title
               description
