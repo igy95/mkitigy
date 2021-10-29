@@ -39,6 +39,7 @@ interface Props {
 const PostTemplate = ({
   pageContext: { frontmatter, body, timeToRead, next, previous },
 }: Props) => {
+  if (!frontmatter) return null;
   const { title, description, date, featuredImage, imgSrc } = frontmatter;
   const image = getImage(featuredImage);
 
