@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "description": "Personal blog about frontend develop.",
-  "repository": "https://github.com/GwangYeol-Im/mkitigy.io.git",
+  "repository": "https://github.com/GwangYeol-Im/mkitigy",
   "author": "imgwang-yeol <mkitigy@gmail.com>",
   "license": "MIT",
   "dependencies": {
