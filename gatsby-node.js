@@ -90,8 +90,8 @@ exports.createPages = async ({ graphql, actions }) => {
         frontmatter,
         body,
         timeToRead,
-        next,
-        previous,
+        next: previous,
+        previous: next,
       },
     });
   });
