@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: 'Mkitigy.io',
-    titleTemplate: '%s | Mkitigy.io',
+    title: 'Make It IGY',
+    titleTemplate: '%s | Make It IGY',
     description: 'Personal blog posting about frontend develop.',
     url: '',
     image: '',
