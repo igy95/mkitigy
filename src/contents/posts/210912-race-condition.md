@@ -79,7 +79,7 @@ $input.addEventListener('input', () => {
 <br />
 
 <figure>
-  <img src="race-condition1.gif" alt="race condition 예시 1" />
+  <img src="../../images/body/race-condition1.gif" alt="race condition 예시 1" />
   <figcaption align = "center"></figcaption>
 </figure>
 
@@ -154,7 +154,7 @@ $input.addEventListener('input', () => {
 <br />
 
 <figure>
-  <img src="race-condition2.gif" alt="race condition 예시 2" />
+  <img src="../../images/body/race-condition2.gif" alt="race condition 예시 2" />
   <figcaption align = "center"></figcaption>
 </figure>
 

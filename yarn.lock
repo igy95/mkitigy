@@ -5943,6 +5943,20 @@ gatsby-recipes@^1.0.0:
     xstate "^4.9.1"
     yoga-layout-prebuilt "^1.9.6"
 
+gatsby-remark-copy-linked-files@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-copy-linked-files/-/gatsby-remark-copy-linked-files-5.0.0.tgz#dea4300531c4a16f9403c287abfe97db7a1fef7e"
+  integrity sha512-bfqtMeb+IR1YfELoNfw+Td5BjHa9HYrgDQi/dHPj8b/ay+vexDL6TzbLuStDVzqkvSC93aboGm2k5SvKAw5aIA==
+  dependencies:
+    "@babel/runtime" "^7.15.4"
+    cheerio "^1.0.0-rc.10"
+    fs-extra "^10.0.0"
+    is-relative-url "^3.0.0"
+    lodash "^4.17.21"
+    path-is-inside "^1.0.2"
+    probe-image-size "^6.0.0"
+    unist-util-visit "^2.0.3"
+
 gatsby-remark-images@^6.0.0:
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/gatsby-remark-images/-/gatsby-remark-images-6.0.0.tgz#53d3f438b1bbe3e144ef26214a8a99c6f22c77fe"
@@ -9819,6 +9833,11 @@ path-is-absolute@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/path-is-absolute/-/path-is-absolute-1.0.1.tgz#174b9268735534ffbc7ace6bf53a5a9e1b5c5f5f"
   integrity sha1-F0uSaHNVNP+8es5r9TpanhtcX18=
+
+path-is-inside@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/path-is-inside/-/path-is-inside-1.0.2.tgz#365417dede44430d1c11af61027facf074bdfc53"
+  integrity sha1-NlQX3t5EQw0cEa9hAn+s8HS9/FM=
 
 path-key@^2.0.0, path-key@^2.0.1:
   version "2.0.1"
