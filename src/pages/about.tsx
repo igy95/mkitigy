@@ -13,7 +13,7 @@ const About = () => {
 
   return (
     <Layout>
-      <SEO title="About" description="about page for blog." />
+      <SEO title="About" description="mkitigy Resume" />
       <Date>
         <i>Last Updated - {frontmatter.date}</i>
       </Date>

@@ -26,7 +26,7 @@ const CodeBlock = (props: Props) => {
       theme={theme}
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <pre
+        <Pre
           className={className}
           style={{
             ...style,
@@ -43,11 +43,15 @@ const CodeBlock = (props: Props) => {
               ))}
             </CodeLine>
           ))}
-        </pre>
+        </Pre>
       )}
     </Highlight>
   );
 };
+
+const Pre = styled.pre`
+  overflow-x: auto;
+`;
 
 const CodeLine = styled.div`
   margin: 0.3rem 0;

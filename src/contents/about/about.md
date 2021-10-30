@@ -1,6 +1,6 @@
 ---
 title: about
-date: October 26, 2021
+date: October 30, 2021
 ---
 
 # 임광열
@@ -10,7 +10,7 @@ date: October 26, 2021
 ## 코딩은 어찌 보면 예술의 영역이다.
 
 - 개발을 바라보는 관점을 생존에서 성장의 영역으로 이끌어준 문장입니다.
-- 사용자에게 쉬운 접근성을 제공하면서도 구조에 대한 정체성을 확립하는 방법을 항상 고민합니다.
+- 주체적인 학습이 가능하며 새롭게 알게된 지식은 [틈틈이 정리하여 내재화](https://mkitigy.notion.site/0115bf664d234a99883abce2c5d1b63d)합니다.
 - 글쓰기에 관심이 많습니다.
 - 누구보다 함께 일 하고 싶은 사람이고 싶습니다.
 
@@ -52,6 +52,17 @@ date: October 26, 2021
 - 우아한테크코스 교육생 당시 '프론트 엔드의 비동기'라는 주제로 발표
 
 # Personal
+
+## Make It IGY
+
+- link - https://www.mkitigy.com
+
+### Description
+
+- 21.10 ~ current
+- 지식 공유를 위한 개인 기술 블로그
+- Gatsby, React, Typescript, Emotion
+- 쉽게 읽을 수 있는 콘텐츠, UI를 고민하며 블로그 개발 후 이전 글 마이그레이션
 
 ## MDN Korea
 
