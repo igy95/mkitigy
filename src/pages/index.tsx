@@ -7,6 +7,7 @@ import Layout from '@components/Layout';
 import React from 'react';
 import SEO from '@components/SEO';
 import { colors } from '@constants';
+import { formatDate } from '@utils';
 import styled from '@emotion/styled';
 
 interface PostsQueryData {
@@ -46,7 +47,7 @@ const App = () => {
                 <Description>{description}</Description>
                 <ReadInfo>
                   <small>
-                    {date} • {timeToRead} min
+                    {formatDate(date)} • {timeToRead} min
                   </small>
                 </ReadInfo>
               </Link>

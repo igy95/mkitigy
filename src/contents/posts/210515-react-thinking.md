@@ -1,7 +1,7 @@
 ---
 title: 'React로 생각하기'
 description: '공식문서로 시작하는 react'
-date: May 15, 2021
+date: '2021-05-15'
 featuredImage: '../../images/featured/react-thinking.webp'
 imgSrc: 'https://morioh.com/p/ecb8fb16c63d'
 tags: ['react']

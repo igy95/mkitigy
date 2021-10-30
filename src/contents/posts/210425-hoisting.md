@@ -1,7 +1,7 @@
 ---
 title: 'Hoisting'
 description: '호이스팅에 대한 오해와 진실'
-date: April 25, 2021
+date: '2021-04-25'
 tags: ['javascript']
 ---
 

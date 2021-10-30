@@ -1,7 +1,7 @@
 ---
 title: '비동기 처리 시 race condition 고려하기'
 description: 'race condition을 방지하기 위해 AbortController 도입하기'
-date: September 12, 2021
+date: '2021-09-12'
 tags: ['web', 'javascript']
 featuredImage: '../../images/featured/race-condition.jpeg'
 imgSrc: 'https://blog.theodo.com/2019/09/handle-race-conditions-in-nodejs-using-mutex/'

@@ -1,7 +1,7 @@
 ---
 title: 'Prototype, 그리고 Class'
 description: 'Prototype 기반 방식과 ES6 Class'
-date: June 14, 2021
+date: '2021-06-14'
 tags: ['javascript']
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: 'Iteration Protocol'
 description: 'ES6 Iteration Protocol'
-date: May 24, 2021
+date: '2021-05-24'
 tags: ['javascript']
 ---
 

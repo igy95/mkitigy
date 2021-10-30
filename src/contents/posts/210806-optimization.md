@@ -1,7 +1,7 @@
 ---
 title: '웹의 성능'
 description: '성능이 좋은 웹이란 무엇일까?'
-date: August 6, 2021
+date: '2021-08-06'
 tags: ['web']
 ---
 

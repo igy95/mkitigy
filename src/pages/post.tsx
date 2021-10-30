@@ -11,6 +11,7 @@ import React from 'react';
 import SEO from '@components/SEO';
 import TYF from '@components/TYF';
 import { colors } from '@constants';
+import { formatDate } from '@utils';
 import styled from '@emotion/styled';
 
 interface OtherArticle {
@@ -23,7 +24,7 @@ interface OtherArticle {
 interface Props {
   pageContext: {
     frontmatter: {
-      date: string;
+      date: Date;
       description: string;
       imgSrc: string;
       title: string;
@@ -51,7 +52,7 @@ const PostTemplate = ({
         <FrontMatter>
           <Title>{title}</Title>
           <ReadInfo>
-            {date} • {timeToRead} min
+            {formatDate(date)} • {timeToRead} min
           </ReadInfo>
           {image && <FeaturedImage image={image} alt={title} />}
           {imgSrc && (
