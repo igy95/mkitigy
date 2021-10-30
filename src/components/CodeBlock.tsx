@@ -36,13 +36,15 @@ const CodeBlock = (props: Props) => {
             marginBottom: '1.5rem',
           }}
         >
-          {tokens.map((line, i) => (
-            <CodeLine key={i} {...getLineProps({ line, key: i })}>
-              {line.map((token, key) => (
-                <span key={key} {...getTokenProps({ token, key })} />
-              ))}
-            </CodeLine>
-          ))}
+          <Code>
+            {tokens.map((line, i) => (
+              <CodeLine key={i} {...getLineProps({ line, key: i })}>
+                {line.map((token, key) => (
+                  <span key={key} {...getTokenProps({ token, key })} />
+                ))}
+              </CodeLine>
+            ))}
+          </Code>
         </Pre>
       )}
     </Highlight>
@@ -53,7 +55,12 @@ const Pre = styled.pre`
   overflow-x: auto;
 `;
 
-const CodeLine = styled.div`
+const Code = styled.ul`
+  width: max-content;
+  padding-right: 1.5rem;
+`;
+
+const CodeLine = styled.li`
   margin: 0.3rem 0;
 
   & > span {
