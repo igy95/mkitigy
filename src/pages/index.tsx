@@ -32,7 +32,7 @@ const App = () => {
   return (
     <Layout>
       <Header page="home" />
-      <SEO title="Home" description="home page for blog." />
+      <SEO />
       <Bio />
       <PostList>
         {allMdx.edges.map((edge, index) => {

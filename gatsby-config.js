@@ -1,10 +1,10 @@
 module.exports = {
   siteMetadata: {
     title: 'Make It IGY',
-    titleTemplate: '%s | Make It IGY',
+    titleTemplate: '%s | Mkitigy.com',
     description: 'Personal blog posting about frontend develop.',
-    url: '',
-    image: '',
+    url: 'https://www.mkitigy.com',
+    image: '/src/images/profile/profile.jpg',
     author: `mkitigy`,
     introduction: 'Love Music & Development',
     social: {
