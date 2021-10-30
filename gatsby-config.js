@@ -4,7 +4,7 @@ module.exports = {
     titleTemplate: '%s | Mkitigy.com',
     description: 'Personal blog posting about frontend develop.',
     url: 'https://www.mkitigy.com',
-    image: '/src/images/profile/profile.jpg',
+    image: '/profile.jpg',
     author: `mkitigy`,
     introduction: 'Love Music & Development',
     social: {
