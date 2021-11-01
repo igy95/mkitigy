@@ -35,7 +35,7 @@ const MarkdownContent = ({ children }: Props) => (
 );
 
 const Paragraph = styled.p`
-  line-height: 1.5;
+  line-height: 1.6;
   margin-bottom: 1rem;
 `;
 
