@@ -1,4 +1,5 @@
 import { GatsbyImage, ImageDataLike, getImage } from 'gatsby-plugin-image';
+import { PATH, colors } from '@constants';
 
 import Bio from '@components/Bio';
 import Darass from 'darass-react';
@@ -10,12 +11,10 @@ import MarkdownContent from '@components/MarkdownContent';
 import React from 'react';
 import SEO from '@components/SEO';
 import TYF from '@components/TYF';
-import { colors } from '@constants';
 import { formatDate } from '@utils';
 import styled from '@emotion/styled';
 
 interface OtherArticle {
-  slug: string;
   frontmatter: {
     title: string;
   };
@@ -66,14 +65,16 @@ const PostTemplate = ({
       <Navigator>
         <li>
           {previous && (
-            <Link to={`/${previous.slug}`}>
+            <Link to={PATH.POST(previous.frontmatter.title)}>
               이전 글: {previous.frontmatter.title}
             </Link>
           )}
         </li>
         <li>
           {next && (
-            <Link to={`/${next.slug}`}>다음 글: {next.frontmatter.title}</Link>
+            <Link to={PATH.POST(next.frontmatter.title)}>
+              다음 글: {next.frontmatter.title}
+            </Link>
           )}
         </li>
       </Navigator>

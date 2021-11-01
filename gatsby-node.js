@@ -36,20 +36,17 @@ exports.createPages = async ({ graphql, actions }) => {
       ) {
         edges {
           next {
-            slug
             frontmatter {
               title
             }
           }
           previous {
-            slug
             frontmatter {
               title
             }
           }
           node {
             body
-            slug
             timeToRead
             frontmatter {
               date
@@ -60,8 +57,6 @@ exports.createPages = async ({ graphql, actions }) => {
               featuredImage {
                 childImageSharp {
                   gatsbyImageData(
-                    width: 600
-                    height: 300
                     placeholder: BLURRED
                     formats: [AUTO, WEBP, AVIF]
                   )
@@ -82,10 +77,11 @@ exports.createPages = async ({ graphql, actions }) => {
   const postTemplate = path.resolve(__dirname, 'src/pages', 'post.tsx');
 
   posts.forEach(({ next, previous, node }) => {
-    const { body, slug, timeToRead, frontmatter } = node;
+    const { body, timeToRead, frontmatter } = node;
+    const path = `/posts/${frontmatter.title.trim().replace(/\s+/g, '-')}`;
 
     actions.createPage({
-      path: slug,
+      path,
       component: postTemplate,
       context: {
         frontmatter,

@@ -1,4 +1,5 @@
 import { Link, graphql, useStaticQuery } from 'gatsby';
+import { PATH, colors } from '@constants';
 
 import Bio from '@components/Bio';
 import { H2 } from '@components/common/Heading';
@@ -6,7 +7,6 @@ import Header from '@components/Header';
 import Layout from '@components/Layout';
 import React from 'react';
 import SEO from '@components/SEO';
-import { colors } from '@constants';
 import { formatDate } from '@utils';
 import styled from '@emotion/styled';
 
@@ -14,7 +14,6 @@ interface PostsQueryData {
   allMdx: {
     edges: {
       node: {
-        slug: string;
         timeToRead: number;
         frontmatter: {
           date: Date;
@@ -37,12 +36,12 @@ const App = () => {
       <Bio />
       <PostList>
         {allMdx.edges.map((edge, index) => {
-          const { slug, timeToRead, frontmatter } = edge.node;
+          const { timeToRead, frontmatter } = edge.node;
           const { date, description, title } = frontmatter;
 
           return (
             <Post key={title + date}>
-              <Link to={slug} key={index}>
+              <Link to={PATH.POST(frontmatter.title)} key={index}>
                 <Title>{title}</Title>
                 <Description>{description}</Description>
                 <ReadInfo>
@@ -95,7 +94,6 @@ const query = graphql`
     ) {
       edges {
         node {
-          slug
           timeToRead
           frontmatter {
             date
