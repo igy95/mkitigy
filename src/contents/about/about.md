@@ -10,8 +10,8 @@ date: November 1, 2021
 ## 코딩은 예술의 영역이다.
 
 - 개발을 바라보는 관점을 생존에서 성장의 영역으로 이끌어준 문장입니다.
-- 주체적으로 학습하며 새롭게 알게된 지식은 [틈틈이 정리하여 내재화](https://mkitigy.notion.site/0115bf664d234a99883abce2c5d1b63d)합니다.
-- 명확한 커뮤니케이션을 바탕으로 [누구보다 함께 일 하고 싶은 사람](https://www.mkitigy.com/posts/나는-당신에게-어떤-사람이었을까)이고 싶습니다.
+- 기록하는 것에 가치를 두며, 기록을 통해 [개인의 성장](https://mkitigy.notion.site/0115bf664d234a99883abce2c5d1b63d)과 [지식의 공유](https://www.mkitigy.com)를 추구합니다.
+- 좋은 커뮤니케이션을 바탕으로 [누구보다 함께 일 하고 싶은 사람](https://www.mkitigy.com/posts/나는-당신에게-어떤-사람이었을까)이고 싶습니다.
 
 # Experience & Project
 
@@ -68,7 +68,7 @@ date: November 1, 2021
 
 ### Description
 
-- 지식 공유를 위한 개인 기술 블로그
+- 개인 기술 블로그
 - Gatsby, React, Typescript, Emotion
 - 쉽게 읽을 수 있는 콘텐츠, UI를 고민하며 블로그 개발 후 이전 글 마이그레이션
 
