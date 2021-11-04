@@ -26,7 +26,7 @@ const Header = ({ page }: Props) => {
 };
 
 const Container = styled.header`
-  border-top: 1rem solid ${colors.blue500};
+  border-top: 1rem solid ${colors.blue600};
 `;
 
 export default Header;

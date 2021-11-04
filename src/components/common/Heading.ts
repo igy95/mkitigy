@@ -10,6 +10,11 @@ export const H1 = styled.h1`
   ${headingStyle}
   font-weight: 900;
   margin: 2rem 0 1rem 0;
+
+  &.md_h1 {
+    padding-bottom: 0.3rem;
+    border-bottom: 0.5rem solid ${colors.blue600};
+  }
 `;
 
 export const H2 = styled.h2`
