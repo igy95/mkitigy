@@ -1,6 +1,6 @@
 ---
 title: about
-date: November 3, 2021
+date: November 19, 2021
 ---
 
 # 임광열
@@ -32,8 +32,15 @@ Contact - mkitigy@gmail.com
 ### Description
 
 - 카드 단위의 개념 정리, 퀴즈 형식의 복습을 통한 반복 학습 장려 서비스
-- TypeScript, React, React-Router, Recoil, Emotion, Axios, Webpack, Express
+- TypeScript, React, Recoil, Emotion, Webpack, Express
 - 웹 프론트엔드 아키텍처 설계와 페이지, 공통 컴포넌트 개발
+
+#### 사용성 개선
+
+- 연속된 페이지 이동으로 발생할 수 있는 라우팅 이슈 (뒤로 가기 etc.) 해결
+- 비동기 요청이 필요한 페이지마다 Skeleton UI 제공
+- 정식 배포 후 실제 사용자와 상호 작용하며 개선 경험 (검색 기능 개편, SSR 도입 etc.)
+- 로그인 시 access token 만료로 인한 로그아웃 이슈 해결 위해 refresh token 도입
 
 #### 성능 향상
 
@@ -42,14 +49,6 @@ Contact - mkitigy@gmail.com
 - AWS S3 - CloudFront를 통한 CDN 구축으로 이미지 로딩 속도 향상(831ms → 11ms)
 - 캐싱 전략을 도입하여 리소스 로딩 속도 향상
 - 타겟 브라우저 범위(국내 점유율 1% 이상, IE 11 이상) 설정으로 불필요한 레거시 코드 제거
-
-#### 사용성 개선
-
-- 연속된 페이지 이동으로 발생할 수 있는 라우팅 이슈 (뒤로 가기 etc.) 해결
-- 카드 슬라이더, 카드 스크롤 등 사용성 증진을 위한 UX 제공
-- 비동기 요청이 필요한 페이지마다 Skeleton UI 제공
-- 정식 배포 후 실제 사용자와 상호 작용하며 개선 경험 (검색 기능 개편, SSR 도입 etc.)
-- 로그인 시 access token 만료로 인한 로그아웃 이슈 해결 위해 refresh token 도입
 
 #### 매니징
 

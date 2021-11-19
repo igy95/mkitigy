@@ -89,7 +89,7 @@ const UL = styled.ul`
   ${List}
 
   & > li {
-    list-style: inside;
+    list-style: initial;
   }
 `;
 
