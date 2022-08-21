@@ -10,7 +10,6 @@ import { Link } from 'gatsby';
 import MarkdownContent from '@components/MarkdownContent';
 import React from 'react';
 import SEO from '@components/SEO';
-import TYF from '@components/TYF';
 import { formatDate } from '@utils';
 import styled from '@emotion/styled';
 
@@ -78,9 +77,6 @@ const PostTemplate = ({
           )}
         </li>
       </Navigator>
-      <Badge>
-        <TYF />
-      </Badge>
       <Bio />
       <Darass
         projectKey="RX0tGvoJblfIKbR38"
@@ -147,10 +143,6 @@ const Navigator = styled.ul`
   & > li:last-child {
     text-align: right;
   }
-`;
-
-const Badge = styled.div`
-  text-align: right;
 `;
 
 export default PostTemplate;
