@@ -29,9 +29,9 @@ const Bio = () => {
         <Introduction>{introduction}</Introduction>
         {social && (
           <MoreInfo>
-            <li>
+            {/* <li>
               <a href={PATH.ABOUT}>Resume</a>
-            </li>
+            </li> */}
             <li>
               <a href={social.github}>Github</a>
             </li>
