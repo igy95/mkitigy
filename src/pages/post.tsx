@@ -2,7 +2,6 @@ import { GatsbyImage, ImageDataLike, getImage } from 'gatsby-plugin-image';
 import { PATH, colors } from '@constants';
 
 import Bio from '@components/Bio';
-import Darass from 'darass-react';
 import { H1 } from '@components/common/Heading';
 import Header from '@components/Header';
 import Layout from '@components/Layout';
@@ -78,14 +77,6 @@ const PostTemplate = ({
         </li>
       </Navigator>
       <Bio />
-      <Darass
-        projectKey="RX0tGvoJblfIKbR38"
-        darkMode={false}
-        primaryColor={colors.green300}
-        isShowSortOption={true}
-        isAllowSocialLogin={false}
-        isShowLogo={false}
-      />
     </Layout>
   );
 };
